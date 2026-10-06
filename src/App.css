@@ -1691,35 +1691,38 @@ img {
   }
 
   .mobile-menu {
-    display: block;
-  }
+  display: none;
+}
 
-  .nav-links {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    width: 100%;
-    padding: 25px;
-    background: var(--white);
-    border-bottom: 1px solid var(--light-purple);
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
+.nav-links {
+  position: static;
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
 
-  .nav-links.open {
-    display: flex;
-  }
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
 
-  .nav-links > a {
-    padding: 14px 5px;
-  }
+.nav-links > a {
+  padding: 8px 0;
+  flex-shrink: 0;
+}
 
-  .nav-links .nav-book {
-    justify-content: center;
-    margin-top: 8px;
-  }
+.nav-links .nav-book {
+  justify-content: center;
+  margin-top: 0;
+  flex-shrink: 0;
+}
 
   .hero {
     min-height: calc(100vh - 72px);
