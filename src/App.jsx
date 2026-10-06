@@ -1,6 +1,14 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import { Menu, X, CalendarDays } from "lucide-react";
-import { useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+  Link,
+} from "react-router-dom";
+
+import {
+  CalendarDays,
+} from "lucide-react";
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -12,208 +20,157 @@ import NotFound from "./pages/NotFound";
 
 import "./App.css";
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  return (
-    <header className="navbar">
-
-      <div className="nav-container">
-
-        <NavLink
-          to="/"
-          className="logo"
-          onClick={closeMenu}
-        >
-          <span>LUXE</span>
-          <small>BEAUTY SALON</small>
-        </NavLink>
-
-
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-
-          <NavLink to="/" onClick={closeMenu}>
-            Home
-          </NavLink>
-
-          <NavLink to="/services" onClick={closeMenu}>
-            Services
-          </NavLink>
-
-          <NavLink to="/gallery" onClick={closeMenu}>
-            Gallery
-          </NavLink>
-
-          <NavLink to="/about" onClick={closeMenu}>
-            About
-          </NavLink>
-
-          <NavLink to="/contact" onClick={closeMenu}>
-            Contact
-          </NavLink>
-
-          <NavLink
-            to="/booking"
-            className="nav-book"
-            onClick={closeMenu}
-          >
-            <CalendarDays size={16} />
-            Book Now
-          </NavLink>
-
-        </nav>
-
-
-        <button
-          className="mobile-menu"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
-        >
-          {menuOpen ? (
-            <X size={25} />
-          ) : (
-            <Menu size={25} />
-          )}
-        </button>
-
-      </div>
-
-    </header>
-  );
-}
-
-
 function App() {
   return (
     <BrowserRouter>
+      <div className="app">
 
-      <Navbar />
+        {/* NAVIGATION */}
+        <header className="navbar">
+          <div className="navbar-inner">
 
-      <main>
+            <Link to="/" className="logo">
+              <span>LUXE</span>
+              <small>BEAUTY SALON</small>
+            </Link>
 
-        <Routes>
+            <nav className="nav-links">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Home
+              </NavLink>
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Services
+              </NavLink>
 
-          <Route
-            path="/services"
-            element={<Services />}
-          />
+              <NavLink
+                to="/gallery"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Gallery
+              </NavLink>
 
-          <Route
-            path="/gallery"
-            element={<Gallery />}
-          />
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                About
+              </NavLink>
 
-          <Route
-            path="/about"
-            element={<About />}
-          />
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Contact
+              </NavLink>
 
-          <Route
-            path="/booking"
-            element={<Booking />}
-          />
+              <NavLink to="/booking" className="nav-book">
+                <CalendarDays size={16} />
+                Book Now
+              </NavLink>
+            </nav>
 
-          <Route
-            path="/contact"
-            element={<Contact />}
-          />
-          <Route path="*" element={<NotFound />} />
+          </div>
+        </header>
 
-        </Routes>
+        {/* PAGES */}
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-      </main>
+        {/* FOOTER */}
+        <footer className="footer">
+          <div className="footer-container">
 
+            <div className="footer-brand">
+              <Link to="/" className="logo">
+                <span>LUXE</span>
+                <small>BEAUTY SALON</small>
+              </Link>
 
-      <footer className="footer">
+              <p>
+                Beauty, confidence and a little time
+                just for you.
+              </p>
+            </div>
 
-        <div className="footer-container">
+            <div className="footer-links">
+              <h4>QUICK LINKS</h4>
 
-          <div className="footer-brand">
+              <Link to="/">Home</Link>
+              <Link to="/services">Services</Link>
+              <Link to="/gallery">Gallery</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+              <Link to="/booking">Book Now</Link>
+            </div>
 
-            <h2>LUXE</h2>
+            <div className="footer-contact">
+              <h4>CONTACT</h4>
 
-            <p>BEAUTY SALON</p>
+              <p>Meru, Kenya</p>
+              <p>+254 789 726 060</p>
+              <p>hello@luxebeautysalon.com</p>
+            </div>
 
-            <span>
-              Beauty that makes you shine.
-            </span>
+            <div className="footer-hours">
+              <h4>OPENING HOURS</h4>
+
+              <p>
+                Monday - Friday
+                <span>8:00 AM — 7:00 PM</span>
+              </p>
+
+              <p>
+                Saturday
+                <span>8:00 AM — 6:00 PM</span>
+              </p>
+
+              <p>
+                Sunday
+                <span>Closed</span>
+              </p>
+            </div>
 
           </div>
 
+          <div className="footer-bottom">
+            <p>
+              © {new Date().getFullYear()} Luxe Beauty Salon.
+              All rights reserved.
+            </p>
 
-          <div className="footer-column">
-
-            <h3>Quick Links</h3>
-
-            <NavLink to="/">
-              Home
-            </NavLink>
-
-            <NavLink to="/services">
-              Services
-            </NavLink>
-
-            <NavLink to="/gallery">
-              Gallery
-            </NavLink>
-
-            <NavLink to="/about">
-              About Us
-            </NavLink>
-
+            <p>
+              Designed & developed with care.
+            </p>
           </div>
+        </footer>
 
-
-          <div className="footer-column">
-
-            <h3>Contact</h3>
-
-            <p>📍 Meru, Kenya</p>
-
-            <p>📞 +254 700 000 000</p>
-
-            <p>💬 WhatsApp Available</p>
-
-          </div>
-
-
-          <div className="footer-column">
-
-            <h3>Opening Hours</h3>
-
-            <p>Monday - Friday</p>
-
-            <p>8:00 AM - 7:00 PM</p>
-
-            <p>Saturday: 8:00 AM - 6:00 PM</p>
-
-            <p>Sunday: Closed</p>
-
-          </div>
-
-        </div>
-
-
-        <div className="footer-bottom">
-
-          <p>
-            © {new Date().getFullYear()} Luxe Beauty Salon.
-            All rights reserved.
-          </p>
-
-        </div>
-
-      </footer>
-
+      </div>
     </BrowserRouter>
   );
 }

@@ -2049,3 +2049,126 @@ img {
     flex-direction: column;
   }
 }
+/* =========================================================
+   MOBILE NAVIGATION - ALWAYS VISIBLE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .navbar {
+    height: 72px;
+    overflow: hidden;
+  }
+
+  .navbar-inner {
+    width: 100%;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    overflow: hidden;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    position: static !important;
+    width: auto !important;
+    height: 72px;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    gap: 18px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    white-space: nowrap !important;
+
+    flex: 1;
+    
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links > a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 8px 0 !important;
+    margin: 0 !important;
+
+    white-space: nowrap;
+  }
+
+  .nav-links .nav-book {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    margin: 0 !important;
+    padding: 10px 16px !important;
+
+    white-space: nowrap;
+  }
+
+  /* Completely hide any hamburger button */
+  .mobile-menu,
+  .menu-toggle,
+  .mobile-menu-button {
+    display: none !important;
+  }
+}
+
+
+/* Extra-small phones */
+@media (max-width: 500px) {
+
+  .navbar {
+    height: 68px;
+  }
+
+  .navbar-inner {
+    padding: 0 14px;
+    gap: 14px;
+  }
+
+  .nav-links {
+    height: 68px;
+
+    gap: 16px !important;
+  }
+
+  .nav-links > a {
+    font-size: 11px !important;
+  }
+
+  .nav-links .nav-book {
+    font-size: 11px !important;
+    padding: 9px 13px !important;
+  }
+
+  .nav-links .nav-book svg {
+    width: 14px;
+    height: 14px;
+  }
+}
