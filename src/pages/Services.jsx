@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import {
   Scissors,
   Sparkles,
-  Heart,
   Crown,
   Palette,
   Flower2,
+  Waves,
   ArrowRight,
   CalendarDays,
 } from "lucide-react";
@@ -16,8 +16,7 @@ const services = [
     category: "HAIR",
     name: "Hair Styling",
     description:
-      "Professional styling for everyday looks, events and special occasions.",
-    price: "From KSh 800",
+      "Professional hair styling for everyday looks, events and special occasions.",
   },
   {
     icon: Sparkles,
@@ -25,23 +24,27 @@ const services = [
     name: "Braiding",
     description:
       "Neat and stylish braids created with care, precision and attention to detail.",
-    price: "From KSh 1,000",
   },
   {
     icon: Crown,
-    category: "HAIR",
-    name: "Weaving",
+    category: "WEAVING",
+    name: "Weaving & Extensions",
     description:
-      "Beautiful weaving styles for a polished, elegant and confident look.",
-    price: "From KSh 1,500",
+      "Beautiful weaving and extension styles designed for a polished and confident look.",
   },
   {
     icon: Flower2,
     category: "NATURAL HAIR",
-    name: "Natural Hair Care",
+    name: "Natural Hair",
     description:
-      "Gentle care, treatment and styling designed to keep your natural hair looking healthy.",
-    price: "From KSh 800",
+      "Careful styling and treatment for natural hair while maintaining its beauty and health.",
+  },
+  {
+    icon: Waves,
+    category: "HAIR CARE",
+    name: "Hair Treatment",
+    description:
+      "Hair care treatments designed to refresh, strengthen and maintain healthy-looking hair.",
   },
   {
     icon: Palette,
@@ -49,15 +52,6 @@ const services = [
     name: "Hair Coloring",
     description:
       "Give your hair a fresh new look with carefully selected colors and professional application.",
-    price: "From KSh 1,500",
-  },
-  {
-    icon: Heart,
-    category: "BEAUTY",
-    name: "Nails & Beauty",
-    description:
-      "Relaxing nail and beauty treatments that add the perfect finishing touch to your look.",
-    price: "From KSh 500",
   },
 ];
 
@@ -67,26 +61,22 @@ function Services() {
 
       {/* PAGE HERO */}
       <section className="page-hero">
-
         <div className="page-hero-overlay"></div>
 
         <div className="page-hero-content">
-
           <div className="section-label">
             LUXE BEAUTY SALON
           </div>
 
           <h1>
-            Our <em>Services</em>
+            Hair <em>Services</em>
           </h1>
 
           <p>
-            Beauty care designed to help you look beautiful,
-            feel confident and leave feeling renewed.
+            Professional hair styling created to help you
+            look your best and leave with a style you love.
           </p>
-
         </div>
-
       </section>
 
 
@@ -96,23 +86,22 @@ function Services() {
         <div className="services-intro">
 
           <div>
-
             <div className="section-label">
-              BEAUTY & CARE
+              HAIR & STYLE
             </div>
 
             <h2>
-              Designed around
+              Your hair,
               <br />
-              <em>you.</em>
+              <em>your style.</em>
             </h2>
-
           </div>
 
           <p>
-            From everyday styling to special occasions,
-            our services are created to give you a beautiful
-            experience and results you'll love.
+            From beautiful everyday styles to special
+            occasion looks, we take the time to create
+            hairstyles that suit you, your hair and your
+            personal style.
           </p>
 
         </div>
@@ -161,12 +150,17 @@ function Services() {
                 </p>
 
 
-                {/* PRICE + BOOK */}
+                {/* BOOK */}
                 <div className="service-bottom">
 
                   <div>
-                    <small>PRICE</small>
-                    <strong>{service.price}</strong>
+                    <small>
+                      APPOINTMENT
+                    </small>
+
+                    <strong>
+                      Price on request
+                    </strong>
                   </div>
 
                   <Link to="/booking">
@@ -192,19 +186,20 @@ function Services() {
         <div className="service-note-inner">
 
           <div className="section-label">
-            A LITTLE NOTE
+            YOUR STYLE MATTERS
           </div>
 
           <h2>
-            Your beauty,
+            Hair that feels
             <br />
-            <em>your way.</em>
+            <em>like you.</em>
           </h2>
 
           <p>
-            Prices shown are starting prices and may vary depending
-            on hair length, style, products and treatment requirements.
-            Contact us before your appointment for an accurate quote.
+            Every hairstyle is different. Pricing may depend
+            on hair length, style, extensions, products and
+            the amount of work required. Contact us before
+            your appointment for an accurate quote.
           </p>
 
         </div>
@@ -222,9 +217,9 @@ function Services() {
           </div>
 
           <h2>
-            Ready to feel
+            Ready for your
             <br />
-            <em>beautiful?</em>
+            <em>next look?</em>
           </h2>
 
           <Link

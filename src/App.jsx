@@ -17,6 +17,8 @@ import About from "./pages/About";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 import "./App.css";
 
@@ -98,7 +100,12 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/contact" element={<Contact />} />
+
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            
             <Route path="*" element={<NotFound />} />
+            
           </Routes>
         </main>
 
